@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Upload Video | Tractor Trolley Radium Detection{% endblock %}
+{% block content %}
+<div class="upload-container">
+    <h2><i class="fa-solid fa-video"></i> Upload Tractor Trolley Video</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="video" accept="video/mp4" required>
+        <button type="submit" class="btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Upload & Detect</button>
+    </form>
+    <p class="note">Only short mp4 videos are supported. The system will analyze the back of the trolley for a red radium sticker.</p>
+</div>
+{% endblock %}

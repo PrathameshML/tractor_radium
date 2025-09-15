@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Home | Tractor Trolley Radium Detection{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1><i class="fa-solid fa-tractor"></i> Tractor Trolley Radium Detection</h1>
+        <p>Upload a short video to detect if a <span class="radium">red radium sticker</span> is present at the back.<br>Fast, accurate, and easy to use!</p>
+        <a href="/upload" class="btn-primary"><i class="fa-solid fa-upload"></i> Get Started</a>
+    </div>
+</section>
+<section class="features">
+    <div class="feature"><i class="fa-solid fa-video"></i><h3>Video Upload</h3><p>Supports short mp4 videos for instant analysis.</p></div>
+    <div class="feature"><i class="fa-solid fa-brain"></i><h3>AI Powered</h3><p>Deep learning model trained on real tractor trolley images.</p></div>
+    <div class="feature"><i class="fa-solid fa-shield"></i><h3>Road Safety</h3><p>Helps ensure compliance and safety on rural roads.</p></div>
+</section>
+{% endblock %}

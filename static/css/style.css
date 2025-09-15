@@ -1,0 +1,38 @@
+body { font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%); margin: 0; }
+nav { background: #27ae60; color: #fff; padding: 16px 0; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-size: 1.5em; font-weight: bold; margin-left: 32px; }
+nav ul { list-style: none; display: flex; gap: 24px; margin-right: 32px; }
+nav ul li a { color: #fff; text-decoration: none; font-weight: 500; font-size: 1.1em; }
+nav ul li a:hover { text-decoration: underline; }
+footer { background: #2c3e50; color: #fff; text-align: center; padding: 18px 0; margin-top: 40px; }
+main { min-height: 70vh; }
+.hero { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(44,62,80,0.12); margin: 40px auto 24px; max-width: 700px; padding: 48px 32px; text-align: center; }
+.hero h1 { color: #27ae60; font-size: 2.5em; margin-bottom: 18px; }
+.hero p { color: #34495e; font-size: 1.2em; margin-bottom: 32px; }
+.hero .btn-primary { font-size: 1.1em; }
+.features { display: flex; justify-content: center; gap: 32px; margin: 32px auto; max-width: 700px; }
+.feature { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(44,62,80,0.08); padding: 24px 18px; text-align: center; width: 180px; }
+.feature i { font-size: 2em; color: #27ae60; margin-bottom: 10px; }
+.feature h3 { margin: 10px 0 8px; color: #2c3e50; }
+.feature p { color: #34495e; font-size: 1em; }
+.upload-container { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(44,62,80,0.12); max-width: 500px; margin: 48px auto; padding: 40px 32px; text-align: center; }
+.upload-container h2 { color: #27ae60; margin-bottom: 18px; }
+.upload-container input[type=file] { margin-bottom: 18px; }
+.upload-container .btn-primary { margin-top: 10px; }
+.upload-container .note { color: #34495e; font-size: 0.95em; margin-top: 18px; }
+.result-container { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(44,62,80,0.12); max-width: 500px; margin: 48px auto; padding: 40px 32px; text-align: center; }
+.result-container h2 { color: #27ae60; margin-bottom: 18px; }
+.result { font-size: 1.3em; margin: 18px 0; padding: 16px; border-radius: 8px; display: inline-block; }
+.result.present { background: #eafaf1; color: #27ae60; border: 2px solid #27ae60; }
+.result.absent { background: #fdecea; color: #e74c3c; border: 2px solid #e74c3c; }
+.result .confidence { display: block; font-size: 0.95em; color: #34495e; margin-top: 8px; }
+.btn-primary { display: inline-block; padding: 12px 28px; background: linear-gradient(90deg, #27ae60 0%, #219150 100%); color: #fff; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1em; box-shadow: 0 2px 8px rgba(39,174,96,0.08); transition: background 0.2s; margin-top: 10px; border: none; cursor: pointer; }
+.btn-primary:hover { background: linear-gradient(90deg, #219150 0%, #27ae60 100%); }
+.btn-secondary { display: inline-block; padding: 12px 28px; background: #2980b9; color: #fff; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1em; margin-top: 10px; border: none; cursor: pointer; }
+.btn-secondary:hover { background: #2471a3; }
+.radium { color: #e74c3c; font-weight: bold; }
+@media (max-width: 700px) {
+    .features { flex-direction: column; gap: 18px; }
+    .feature { width: 90%; margin: 0 auto; }
+    .hero, .upload-container, .result-container { padding: 24px 8px; }
+}

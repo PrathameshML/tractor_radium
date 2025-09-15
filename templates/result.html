@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Result | Tractor Trolley Radium Detection{% endblock %}
+{% block content %}
+<div class="result-container">
+    <h2><i class="fa-solid fa-circle-check"></i> Detection Result</h2>
+    <p><strong>File:</strong> {{ filename }}</p>
+    <div class="result {{ 'present' if result == 'Radium Present' else 'absent' }}">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>{{ result }}</span>
+        <span class="confidence">Confidence: {{ confidence }}</span>
+    </div>
+    <a href="/upload" class="btn-primary"><i class="fa-solid fa-upload"></i> Upload Another Video</a>
+    <a href="/" class="btn-secondary"><i class="fa-solid fa-house"></i> Home</a>
+</div>
+{% endblock %}
