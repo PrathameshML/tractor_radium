@@ -3,3 +3,4 @@ gunicorn
 numpy
 torch
 torchvision
+opencv-python
