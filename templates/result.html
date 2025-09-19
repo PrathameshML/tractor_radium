@@ -9,7 +9,13 @@
         <span>{{ result }}</span>
         <span class="confidence">Confidence: {{ confidence }}</span>
     </div>
-    <a href="/upload" class="btn-primary"><i class="fa-solid fa-upload"></i> Upload Another Video</a>
+    {% if detected_frame %}
+    <div class="detected-frame" style="margin-top:1.5em; text-align:center;">
+        <h3>Detected Frame</h3>
+        <img src="{{ detected_frame }}" alt="Detected Radium Frame" style="max-width:100%;border-radius:10px;box-shadow:0 2px 12px #0002;">
+    </div>
+    {% endif %}
+    <a href="/upload" class="btn-primary"><i class="fa-solid fa-upload"></i> Upload Another Image or Video</a>
     <a href="/" class="btn-secondary"><i class="fa-solid fa-house"></i> Home</a>
 </div>
 {% endblock %}

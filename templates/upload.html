@@ -2,11 +2,34 @@
 {% block title %}Upload Video | Tractor Trolley Radium Detection{% endblock %}
 {% block content %}
 <div class="upload-container">
-    <h2><i class="fa-solid fa-video"></i> Upload Tractor Trolley Video</h2>
+    <h2><i class="fa-solid fa-upload"></i> Upload Tractor Trolley Image or Video</h2>
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="video" accept="video/mp4" required>
+        <div style="margin-bottom: 1em;">
+            <label><input type="radio" name="filetype" value="video" checked onchange="toggleFileInput()"> Video</label>
+            <label><input type="radio" name="filetype" value="image" onchange="toggleFileInput()"> Image</label>
+        </div>
+        <input type="file" id="videoInput" name="video" accept="video/mp4" required>
+        <input type="file" id="imageInput" name="image" accept="image/*" style="display:none;">
         <button type="submit" class="btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Upload & Detect</button>
     </form>
-    <p class="note">Only short mp4 videos are supported. The system will analyze the back of the trolley for a red radium sticker.</p>
+    <p class="note">Only short mp4 videos or images are supported. The system will analyze the back of the trolley for a red radium sticker.</p>
 </div>
+<script>
+function toggleFileInput() {
+    const videoInput = document.getElementById('videoInput');
+    const imageInput = document.getElementById('imageInput');
+    const filetype = document.querySelector('input[name="filetype"]:checked').value;
+    if (filetype === 'video') {
+        videoInput.style.display = '';
+        videoInput.required = true;
+        imageInput.style.display = 'none';
+        imageInput.required = false;
+    } else {
+        videoInput.style.display = 'none';
+        videoInput.required = false;
+        imageInput.style.display = '';
+        imageInput.required = true;
+    }
+}
+</script>
 {% endblock %}

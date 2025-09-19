@@ -1,0 +1,183 @@
+/* Modern glassmorphism and hero for deepfakedetector.ai style */
+body {
+    background: linear-gradient(135deg, #181c24 0%, #23283a 100%);
+    color: #f3f6fa;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2.5rem;
+    background: rgba(24,28,36,0.85);
+    box-shadow: 0 2px 16px 0 rgba(31,38,135,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav-logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #7dd3fc;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+nav ul li a {
+    color: #b6c2e1;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+nav ul li a:hover {
+    color: #38bdf8;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #7dd3fc;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #b6c2e1;
+    margin-bottom: 2.2rem;
+    max-width: 600px;
+}
+.cta-btn {
+    background: linear-gradient(90deg, #38bdf8 0%, #7dd3fc 100%);
+    color: #181c24;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 24px 0 rgba(31,38,135,0.13);
+    transition: background 0.2s, color 0.2s;
+}
+.cta-btn:hover {
+    background: linear-gradient(90deg, #7dd3fc 0%, #38bdf8 100%);
+    color: #23283a;
+}
+.upload-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 40vh;
+    margin-bottom: 2.5rem;
+}
+.upload-glass-card {
+    background: rgba(35,40,58,0.85);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.27);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(120, 212, 252, 0.18);
+    transition: box-shadow 0.2s;
+}
+.upload-glass-card h2 {
+    margin-bottom: 1.2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #7dd3fc;
+}
+.upload-dropzone {
+    border: 2px dashed #7dd3fc;
+    border-radius: 12px;
+    background: #1a1f2b;
+    padding: 2rem 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+.upload-dropzone.dragover {
+    border-color: #38bdf8;
+    background: #222b3a;
+}
+.upload-dropzone i {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+.upload-dropzone span {
+    display: block;
+    font-size: 1.1rem;
+    color: #b6c2e1;
+}
+.upload-options {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+.upload-options label {
+    color: #b6c2e1;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.upload-btn {
+    background: linear-gradient(90deg, #38bdf8 0%, #7dd3fc 100%);
+    color: #181c24;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+}
+.upload-btn:hover {
+    background: linear-gradient(90deg, #7dd3fc 0%, #38bdf8 100%);
+    color: #23283a;
+}
+.upload-note {
+    color: #7dd3fc;
+    font-size: 0.95rem;
+    margin-top: 1.2rem;
+}
+footer {
+    text-align: center;
+    padding: 1.5rem 0 0.7rem 0;
+    color: #b6c2e1;
+    font-size: 1rem;
+    background: none;
+}
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 1rem 0.5rem;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+    .upload-glass-card {
+        padding: 1.2rem 0.5rem;
+    }
+}

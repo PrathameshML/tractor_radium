@@ -31,11 +31,14 @@ class RadiumClassifier:
             confidence = probs[0][pred].item()
         return pred, confidence
 
-    def predict_video(self, video_path, frame_interval=10, end_frames=15):
+    def predict_video(self, video_path, frame_interval=10, end_frames=15, save_frame_dir=None, save_frame_prefix=None):
         cap = cv2.VideoCapture(video_path)
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         frame_results = []
         frame_count = 0
+        detected_frame = None
+        detected_frame_idx = None
+        max_conf = -1.0
         # Sample regular frames
         while cap.isOpened():
             ret, frame = cap.read()
@@ -44,6 +47,10 @@ class RadiumClassifier:
             if frame_count % frame_interval == 0:
                 pred, conf = self.predict_image(frame)
                 frame_results.append((pred, conf))
+                if pred == 1 and conf > max_conf:
+                    detected_frame = frame.copy()
+                    detected_frame_idx = frame_count
+                    max_conf = conf
             frame_count += 1
         # Sample more frames from the last few seconds
         cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, total_frames - end_frames))
@@ -53,9 +60,13 @@ class RadiumClassifier:
                 break
             pred, conf = self.predict_image(frame)
             frame_results.append((pred, conf))
+            if pred == 1 and conf > max_conf:
+                detected_frame = frame.copy()
+                detected_frame_idx = frame_count + i
+                max_conf = conf
         cap.release()
         if not frame_results:
-            return None, 0.0
+            return None, 0.0, None
         # Prioritize radium present in last frames
         end_preds = [r[0] for r in frame_results[-end_frames:]]
         if end_preds.count(1) > 0:
@@ -65,4 +76,11 @@ class RadiumClassifier:
             preds = [r[0] for r in frame_results]
             final_pred = max(set(preds), key=preds.count)
             avg_conf = np.mean([c for p, c in frame_results if p == final_pred])
-        return final_pred, avg_conf
+        frame_path = None
+        if final_pred == 1 and detected_frame is not None and save_frame_dir is not None:
+            if not os.path.exists(save_frame_dir):
+                os.makedirs(save_frame_dir)
+            fname = f"{save_frame_prefix or 'detected'}_frame.jpg"
+            frame_path = os.path.join(save_frame_dir, fname)
+            cv2.imwrite(frame_path, detected_frame)
+        return final_pred, avg_conf, frame_path
